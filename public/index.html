@@ -3,14 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatroom</title>
+    <title>Blaze</title>
     <script src="/socket.io/socket.io.js"></script>
     <script src="script.js" defer></script>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .chat-container {
+            max-width: 600px;
+            margin: 50px auto;
             padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         #messages {
             border: 1px solid #ccc;
@@ -18,11 +33,22 @@
             overflow-y: scroll;
             padding: 10px;
             margin-bottom: 10px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        #messages div {
+            margin-bottom: 10px;
+            padding: 8px;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
         }
         input[type="text"] {
-            width: calc(100% - 100px);
+            width: calc(100% - 110px);
             padding: 10px;
             border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
         }
         button {
             padding: 10px;
@@ -30,16 +56,26 @@
             background-color: #007bff;
             color: white;
             cursor: pointer;
+            border-radius: 4px;
+            margin-bottom: 10px;
         }
         button:hover {
             background-color: #0056b3;
         }
+        #usernameInput {
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
-    <h1>Chatroom</h1>
-    <div id="messages"></div>
-    <input type="text" id="messageInput" placeholder="Type your message..." />
-    <button id="sendMessage">Send</button>
+    <header>
+        <h1>Blaze</h1>
+    </header>
+    <div class="chat-container">
+        <input type="text" id="usernameInput" placeholder="Enter your username" />
+        <div id="messages"></div>
+        <input type="text" id="messageInput" placeholder="Type your message..." />
+        <button id="sendMessage">Send</button>
+    </div>
 </body>
 </html>
