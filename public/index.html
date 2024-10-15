@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<link rel="icon" href="https://png.pngtree.com/png-vector/20220630/ourmid/pngtree-fire-flame-logo-template-png-image_5632642.png" type="image/png">
 
+<head>
+    <link rel="icon" href="https://png.pngtree.com/png-vector/20220630/ourmid/pngtree-fire-flame-logo-template-png-image_5632642.png" type="image/png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blaze</title>
@@ -16,6 +16,7 @@
             background-color: #1c1c1c;
             color: white;
         }
+
         header {
             background: linear-gradient(90deg, red, orange, yellow, orange, red);
             background-size: 300% 300%;
@@ -28,11 +29,21 @@
             font-weight: bold;
             letter-spacing: 2px;
         }
+
         @keyframes blaze {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
+
         .chat-container {
             max-width: 600px;
             margin: 50px auto;
@@ -42,6 +53,7 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
             border: 1px solid rgba(255, 69, 0, 0.5);
         }
+
         #messages {
             border: 1px solid rgba(255, 69, 0, 0.7);
             height: 300px;
@@ -51,6 +63,7 @@
             border-radius: 8px;
             background-color: #222;
         }
+
         #messages div {
             margin-bottom: 10px;
             padding: 8px;
@@ -59,6 +72,7 @@
             color: white;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
+
         input[type="text"] {
             width: calc(100% - 110px);
             padding: 10px;
@@ -68,6 +82,7 @@
             background-color: #444;
             color: white;
         }
+
         button {
             padding: 10px;
             border: none;
@@ -79,9 +94,11 @@
             transition: background-color 0.3s ease;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         }
+
         button:hover {
             background-color: rgba(255, 140, 0, 0.9);
         }
+
         #usernameInput {
             margin-bottom: 10px;
             background-color: #444;
@@ -90,8 +107,17 @@
             padding: 10px;
             border-radius: 4px;
         }
+
+        /* Styles for the verified badge */
+        .verified-badge {
+            width: 20px; /* Set width for the badge */
+            height: auto; /* Maintain aspect ratio */
+            vertical-align: middle; /* Align with text */
+            margin-left: 5px; /* Space between username and badge */
+        }
     </style>
 </head>
+
 <body>
     <header>
         <h1>Blaze</h1>
@@ -103,4 +129,5 @@
         <button id="sendMessage">Send</button>
     </div>
 </body>
+
 </html>
