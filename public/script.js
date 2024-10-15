@@ -1,33 +1,23 @@
-const express = require('express');
-const http = require('http');
-const socketIo = require('socket.io');
-const path = require('path');
+const socket = io();
 
-const app = express();
-const server = http.createServer(app);
-const io = socketIo(server);
+// DOM Elements
+const messagesDiv = document.getElementById('messages');
+const messageInput = document.getElementById('messageInput');
+const sendMessageButton = document.getElementById('sendMessage');
 
-// Serve static files
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Handle socket connection
-io.on('connection', (socket) => {
-    console.log('A user connected');
-
-    // Listen for incoming messages
-    socket.on('message', (message) => {
-        // Broadcast message to all clients
-        io.emit('message', message);
-    });
-
-    // Handle disconnect
-    socket.on('disconnect', () => {
-        console.log('User disconnected');
-    });
+// Display incoming messages
+socket.on('message', (message) => {
+    const messageElement = document.createElement('div');
+    messageElement.textContent = message;
+    messagesDiv.appendChild(messageElement);
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
 });
 
-// Start server on the specified port
-const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+// Send message to server
+sendMessageButton.addEventListener('click', () => {
+    const message = messageInput.value;
+    if (message) {
+        socket.emit('message', message);
+        messageInput.value = ''; // Clear the input
+    }
 });
